@@ -1,12 +1,12 @@
-<div class="p-5 text-center bg-body-tertiary rounded-3 d-flex justify-content-center flex-wrap home">
-    <h1 class="w-100">Мои бонусы</h1>
+<div class="p-5  bg-body-tertiary rounded-3 d-flex justify-content-center flex-wrap home">
+    <h1 class="w-100 text-center">Мои бонусы</h1>
     <nav>
         <div class="nav nav-tabs mb-3 text-center tabs-custom d-flex justify-content-center" id="nav-tab" role="tablist" style="margin: auto">
             <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Мои бонусы</button>
             <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">Мой профиль</button>
         </div>
-        <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="tab-content " id="nav-tabContent">
+            <div class="tab-pane fade active show text-center" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                 <div>
                     <h1 class="d-flex align-items-center justify-content-center">
                         У вас на счету: {{bonuses}} бонусов
@@ -26,9 +26,23 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                мой профиль
+                <div class="mb-3">
+                    <label for="disabledTextInput" class="form-label">Почта</label>
+                    <input type="text" id="disabledTextInput" class="form-control" placeholder="{{email}}" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="disabledTextInput" class="form-label">Уникальный код</label>
+                    <input type="text" id="disabledTextInput" class="form-control" placeholder="{{code}}" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="disabledTextInput" class="form-label">Количество бонусов</label>
+                    <input type="text" id="disabledTextInput" class="form-control" placeholder="{{bonuses}}" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="disabledTextInput" class="form-label">Дата регистрации</label>
+                    <input type="text" id="disabledTextInput" class="form-control" placeholder="{{registration_date}}" disabled>
+                </div>
             </div>
         </div>
-
     </nav>
 </div>

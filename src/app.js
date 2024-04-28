@@ -15,7 +15,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'your_secret_key',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: { secure: true }
 }));
 
 app.engine('handlebars', engine({
@@ -28,11 +29,9 @@ app.engine('handlebars', engine({
 app.set('view engine', 'handlebars');
 app.set('views', './views/');
 
-// Создание маршрута для главной страницы
 app.get('/', (req, res) => {
     res.render('home', {user: req.session.user });
 });
-
 
 app.get('/login', (req, res) => {
     res.render('login');
@@ -41,7 +40,6 @@ app.get('/login', (req, res) => {
 app.get('/register', (req, res) => {
     res.render('register');
 });
-
 
 app.post('/login', async (req, res) => {
     const email = req.body.email;
@@ -70,7 +68,8 @@ app.post('/login', async (req, res) => {
             res.render('bonus', {
                 email: user.EMAIL,
                 bonuses: user.NUMBER_OF_BONUSES,
-                code: user.UNIQUE_CODE
+                code: user.UNIQUE_CODE,
+                registration_date: user.REGISTRATION_DATE
             });
         }
     } catch (error) {
@@ -80,7 +79,6 @@ app.post('/login', async (req, res) => {
         });
     }
 });
-
 
 app.post('/register', async (req, res) => {
     const email = req.body.email;
@@ -92,7 +90,9 @@ app.post('/register', async (req, res) => {
     try {
         const existingUser = await USER.findOne({ where: { EMAIL: email } });
         if (existingUser) {
-            return res.status(400).send('Пользователь с таким email уже существует.');
+            return res.render('result', {
+                message: "Пользователь с таким email уже существует."
+            });
         }
 
         const salt = await bcrypt.genSalt(saltRounds);
@@ -144,7 +144,6 @@ app.post('/charge', async (req, res) => {
         user.NUMBER_OF_BONUSES += quantity_bonuses;
 
         await user.save();
-
         // res.render('result', {
         //     message: "Бонусы успешно начислены."
         // });
@@ -165,20 +164,22 @@ app.post('/write-off', async (req, res) => {
         const user = await USER.findOne({ where: { UNIQUE_CODE: code_to } });
 
         if (!user) {
-            return res.render('result', {
-                message: "Пользователь не найден."
-            });
+            return ;
+            // return res.render('result', {
+            //     message: "Пользователь не найден."
+            // });
         }
 
         if (user.NUMBER_OF_BONUSES < quantity_bonuses) {
-            return res.render('result', {
-                message: "Недостаточно бонусов для списания."
-            });
+            return;
+            // return res.render('result', {
+            //     message: "Недостаточно бонусов для списания."
+            // });
         }
 
         user.NUMBER_OF_BONUSES -= quantity_bonuses;
         await user.save();
-
+        return;
         // res.render('result', {
         //     message: "Бонусы успешно списаны."
         // });

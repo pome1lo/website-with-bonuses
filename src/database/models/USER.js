@@ -30,6 +30,10 @@ const USER = sequelize.define('USERS', {
     UNIQUE_CODE: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    REGISTRATION_DATE: {
+        type: DataTypes.DATE,
+        defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
     }
 }, {
     timestamps: false,
