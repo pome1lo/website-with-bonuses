@@ -1,25 +1,25 @@
 <div class="d-flex align-items-center">
-    <form class="form-signin w-100 m-auto login needs-validation" novalidate>
+    <form class="form-signin w-100 m-auto login needs-validation" novalidate action="/login" method="post">
         <div class=" text-center">
             <img class="" src="/img/logo_original.png" alt="" width="120">
         </div>
         <h1 class="h3 mb-3 fw-normal  text-center" >Бонусы за каждую покупку</h1>
 
         <div class="mt-2">
-            <label for="validationServerUsername" class="form-label">Почта</label>
+            <label for="email" class="form-label">Почта</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend2">📭</span>
-                <input type="email" class="form-control" id="validationServerUsername"
+                <input type="email" class="form-control" id="email" name="email"
                        aria-describedby="inputGroupPrepend2" required=""/>
                 <div class="invalid-feedback">Пожалуйста, введите почту.</div>
                 <div class="valid-feedback"></div>
             </div>
         </div>
         <div class="mt-2">
-            <label for="validationServerUsername" class="form-label">Пароль</label>
+            <label for="password" class="form-label">Пароль</label>
             <div class="input-group has-validation">
                 <span class="input-group-text" id="inputGroupPrepend3">🔒</span>
-                <input type="password" class="form-control" id="validationServerUsername"
+                <input type="password" class="form-control" id="password" name="password"
                        placeholder="" aria-describedby="inputGroupPrepend3" required=""/>
                 <div class="invalid-feedback">Пожалуйста, введите пароль.</div>
                 <div class="valid-feedback"></div>

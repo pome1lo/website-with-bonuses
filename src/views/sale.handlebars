@@ -1,0 +1,41 @@
+
+<div class="d-flex align-items-center sale">
+    <nav class="w-100 m-auto ">
+        <div class="nav nav-tabs mb-3 text-center tabs-custom d-flex justify-content-center" id="nav-tab" role="tablist" style="margin: auto">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Начислить бонусы</button>
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false" tabindex="-1">Списать бонусы</button>
+        </div>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <form class="row needs-validation g-3 w-100 m-auto" novalidate action="/charge" method="post">
+                    <div>
+                        <label for="validationServer01" class="form-label">Уникальный код</label>
+                        <input type="text" class="form-control" id="validationServer01" value="" required="" name="code_from">
+                    </div>
+                    <div>
+                        <label for="validationServer03" class="form-label">Количество рублей</label>
+                        <input type="number" class="form-control" id="validationServer03" required="" name="quantity_rub">
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100 py-2 mt-2 red-button" type="submit">Подтвердить</button>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <form class="row needs-validation g-3 w-100 m-auto" novalidate action="/write-off" method="post">
+                    <div>
+                        <label for="validationServer04" class="form-label">Уникальный код</label>
+                        <input type="text" class="form-control" id="validationServer04" value="" required="" name="code_to">
+                    </div>
+                    <div>
+                        <label for="validationServer02" class="form-label">Количетсов бонусов</label>
+                        <input type="number" class="form-control" id="validationServer02" required="" name="quantity_bonuses">
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100 py-2 mt-2 red-button" type="submit">Подтвердить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>

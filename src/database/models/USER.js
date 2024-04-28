@@ -7,7 +7,30 @@ const USER = sequelize.define('USERS', {
         primaryKey: true,
         autoIncrement: true
     },
-    /// todo... add user model
+    EMAIL: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    PASSWORD: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    SALT: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    IS_SELLER: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
+    },
+    NUMBER_OF_BONUSES: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    UNIQUE_CODE: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
 }, {
     timestamps: false,
     freezeTableName: true

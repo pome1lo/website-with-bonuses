@@ -1,10 +1,15 @@
 {
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "express": "^4.19.2",
     "express-handlebars": "^7.1.2",
+    "express-session": "^1.18.0",
     "express-static": "^1.2.6",
     "path": "^0.12.7",
-    "sequelize": "^6.37.3"
+    "sequelize": "^6.37.3",
+    "tedious": "^18.2.0"
   }
 }
