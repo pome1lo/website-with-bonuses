@@ -3,6 +3,8 @@
     "bootstrap-icons": "^1.11.3",
     "express": "^4.19.2",
     "express-handlebars": "^7.1.2",
-    "path": "^0.12.7"
+    "express-static": "^1.2.6",
+    "path": "^0.12.7",
+    "sequelize": "^6.37.3"
   }
 }

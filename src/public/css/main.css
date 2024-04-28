@@ -1,0 +1,12 @@
+[data-bs-theme=light] {
+    --bs-tertiary-bg-rgb: 239 239 239;
+    --bs-btn-bg: #d13b39;
+}
+button.red-button {
+    background-color: #d13b39;
+    border: 0;
+
+}
+button.red-button:hover {
+    background-color: #b0302f;
+}
